@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Processing OAuth...</title>
+    <script>
+      window.onload = () => {
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        const accessToken = params.get("access_token");
+
+        if (accessToken) {
+          localStorage.setItem("webex_token", accessToken);
+          window.location.href = "/home";
+        } else {
+          document.body.innerHTML = "<h2>Error: Token not found in URL</h2>";
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h2>Logging you in...</h2>
+  </body>
+</html>
